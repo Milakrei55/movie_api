@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,17 @@
             width: 100%;
             margin: 15px;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 2px;
             padding: 15px;
             text-align: left;
         }
     </style>
 </head>
+
 <body>
     <h1>myFLIX API Endpoints</h1>
     <table>
@@ -37,7 +42,7 @@
                 <td>JSON object holding data about the user</td>
                 <td>JSON object holding data about the user that was added</td>
             </tr>
-             <!--Update user name-->
+            <!--Update user name-->
             <tr>
                 <td>Update User Info</td>
                 <td>/users/[ID]</td>
@@ -45,14 +50,14 @@
                 <td>JSON object with updated user info</td>
                 <td>Confirmation or error (user not found) message</td>
             </tr>
-                        <!--Deregister a user-->
-                        <tr>
-                            <td>Delete User</td>
-                            <td>/users/[ID]</td>
-                            <td>DELETE</td>
-                            <td>None</td>
-                            <td>Confirmation or error (user not found) message</td>
-                        </tr>
+            <!--Deregister a user-->
+            <tr>
+                <td>Delete User</td>
+                <td>/users/[ID]</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>Confirmation or error (user not found) message</td>
+            </tr>
             <!--Get all movies-->
             <tr>
                 <td>Get All Movies</td>
@@ -85,23 +90,24 @@
                 <td>None</td>
                 <td>JSON object with director info and list of their movies or error (director not found)</td>
             </tr>
-                        <!--Add movie to favorites-->
-                        <tr>
-                            <td>Add a Favorite Movie</td>
-                            <td>/users/[ID]/favourites</td>
-                            <td>POST</td>
-                            <td>JSON object with movie title</td>
-                            <td>Updated list of favorite movies</td>
-                        </tr>
-                        <!--Delete a user's favorite movie-->
-                        <tr>
-                            <td>Remove a Movie From Favorites</td>
-                            <td>/users/[ID]/favourites/[title]</td>
-                            <td>DELETE</td>
-                            <td>None</td>
-                            <td>Updated list of favorite movies</td>
-                        </tr>
+            <!--Add movie to favorites-->
+            <tr>
+                <td>Add a Favorite Movie</td>
+                <td>/users/[ID]/favourites</td>
+                <td>POST</td>
+                <td>JSON object with movie title</td>
+                <td>Updated list of favorite movies</td>
+            </tr>
+            <!--Delete a user's favorite movie-->
+            <tr>
+                <td>Remove a Movie From Favorites</td>
+                <td>/users/[ID]/favourites/[title]</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>Updated list of favorite movies</td>
+            </tr>
         </tbody>
     </table>
 </body>
+
 </html>
