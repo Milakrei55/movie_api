@@ -12,7 +12,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 
 // GET requests
 app.get("/", (req, res) => {
-  res.send("Welcome to my appFlix!");
+  res.send("Welcome to my Movie App!");
 });
 
 app.get("/documentation", (req, res) => {
