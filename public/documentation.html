@@ -40,23 +40,40 @@
                 <td>/users</td>
                 <td>POST</td>
                 <td>JSON object holding data about the user</td>
-                <td>JSON object holding data about the user that was added</td>
+                <td>JSON object holding data about the user that was added or error "users need names"</td>
             </tr>
             <!--Update user name-->
             <tr>
                 <td>Update User Info</td>
-                <td>/users/[ID]</td>
+                <td>/users/:id</td>
                 <td>PUT</td>
                 <td>JSON object with updated user info</td>
-                <td>Confirmation or error (user not found) message</td>
+                <td>Update user name or error (no such user) message</td>
+            </tr>
+            <!--Add movie to favorites-->
+            <tr>
+                <td>Add a Favorite Movie</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>POST</td>
+                <td>JSON object with movie title</td>
+                <td>Confirmation that movie has been added to user's movie array or error (no such user) message</td>
+            </tr>
+            <!--Delete a user's favorite movie-->
+            <tr>
+                <td>Remove a Movie From Favorites</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>Confirmation that movie has been removed from the user's movie array or error (no such user) message
+                </td>
             </tr>
             <!--Deregister a user-->
             <tr>
                 <td>Delete User</td>
-                <td>/users/[ID]</td>
+                <td>/users/:id</td>
                 <td>DELETE</td>
                 <td>None</td>
-                <td>Confirmation or error (user not found) message</td>
+                <td>Confirmation of deletion or error (no such user) message</td>
             </tr>
             <!--Get all movies-->
             <tr>
@@ -69,42 +86,26 @@
             <!--Get movie by title--->
             <tr>
                 <td>Get Movies by Movie Title</td>
-                <td>/movies/[title]</td>
+                <td>/movies/:title</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with movie or error (movie not found)</td>
+                <td>JSON object with movie or error (no such movie)</td>
             </tr>
             <!--Get movie by genre-->
             <tr>
                 <td>Get Movies by Genre</td>
-                <td>/movies/genres/[genre]</td>
+                <td>/movies/genre/:genreName</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with movie or error (genre not found)</td>
+                <td>JSON object with genre or error (no such genre)</td>
             </tr>
             <!--Get movie by director name-->
             <tr>
                 <td>Get Director info and movies by them</td>
-                <td>/movies/directors/[directorname]</td>
+                <td>/movies/directors/:directorName</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with director info and list of their movies or error (director not found)</td>
-            </tr>
-            <!--Add movie to favorites-->
-            <tr>
-                <td>Add a Favorite Movie</td>
-                <td>/users/[ID]/favourites</td>
-                <td>POST</td>
-                <td>JSON object with movie title</td>
-                <td>Updated list of favorite movies</td>
-            </tr>
-            <!--Delete a user's favorite movie-->
-            <tr>
-                <td>Remove a Movie From Favorites</td>
-                <td>/users/[ID]/favourites/[title]</td>
-                <td>DELETE</td>
-                <td>None</td>
-                <td>Updated list of favorite movies</td>
+                <td>JSON object with director info and list of their movies or error (no such director)</td>
             </tr>
         </tbody>
     </table>
