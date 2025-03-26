@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const uuid = require("uuid");
 const _ = require("lodash");
+const mongoose = require("mongoose");
+const Models = require("./models.js");
 
 //mongoose.connect('mongodb://localhost:27017/mfDB', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -21,8 +23,6 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport.js');
 
-const mongoose = require("mongoose");
-const Models = require("./models.js");
 const Movies = Models.Movie;
 const Users = Models.User;
 
@@ -70,7 +70,7 @@ app.post('/users',
           Users
             .create({
               Username: req.body.Username,
-              Password: User.hashPassword(req.body.Password), 
+              Password: Users.hashPassword(req.body.Password), 
               Email: req.body.Email,
               Birthday: req.body.Birthday
             })
@@ -105,7 +105,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }),[
       $set:
       {
         Username: req.body.Username,
-        Password: User.hashPassword(req.body.Password),
+        Password: Users.hashPassword(req.body.Password),
         Email: req.body.Email,
         Birthday: req.body.Birthday
       }
