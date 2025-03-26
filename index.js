@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to Michaela\'s MyFlix app!');
 });
 
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['http://localhost:8080', 'https://milasmovieflix-ab66d5118b4d.herokuapp.com/'];
 
 app.use(cors({
   origin: (origin, callback) => {
