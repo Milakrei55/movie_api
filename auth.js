@@ -33,3 +33,5 @@ module.exports = (router) => {
     })(req, res);
   });
 }
+
+module.exports.generateJWTToken = generateJWTToken;

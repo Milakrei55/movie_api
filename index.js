@@ -20,6 +20,7 @@ const cors = require('cors');
 app.use(cors());
 
 let auth = require('./auth')(app);
+const { generateJWTToken } = require('./auth');
 const passport = require('passport');
 require('./passport.js');
 
@@ -65,25 +66,27 @@ app.post('/users',
       .then((user) => {
         if (user) {
           //If the user is found, send a response that it already exists
-          return res.status(400).send(req.body.Username + ' already exists');
+          return res.status(400).send(req.body.Username + " already exists");
         } else {
-          Users
-            .create({
-              Username: req.body.Username,
-              Password: Users.hashPassword(req.body.Password), 
-              Email: req.body.Email,
-              Birthday: req.body.Birthday
+          Users.create({
+            Username: req.body.Username,
+            Password: Users.hashPassword(req.body.Password),
+            Email: req.body.Email,
+            Birthday: req.body.Birthday,
+          })
+            .then((user) => {
+              let token = generateJWTToken(user.toJSON());
+              res.status(201).json({ user, token });
             })
-            .then((user) => { res.status(201).json(user) })
             .catch((error) => {
               console.error(error);
-              res.status(500).send('Error: ' + error);
+              res.status(500).send("Error: " + error);
             });
         }
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).send('Error: ' + error);
+        res.status(500).send("Error: " + error);
       });
   });
 
