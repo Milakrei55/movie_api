@@ -3,6 +3,11 @@ const app = express();
 const bodyParser = require("body-parser");
 const uuid = require("uuid");
 const _ = require("lodash");
+
+//mongoose.connect('mongodb://localhost:27017/mfDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 const { check, validationResult } = require('express-validator');
 const { User } = require('./models.js');
 
@@ -21,15 +26,12 @@ const Models = require("./models.js");
 const Movies = Models.Movie;
 const Users = Models.User;
 
-//mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb://localhost:27017/mfDB', { useNewUrlParser: true, useUnifiedTopology: true });
-
 // WELCOME users to the app
 app.get('/', (req, res) => {
   res.send('Welcome to Michaela\'s MyFlix app!');
 });
 
-const allowedOrigins = ['http://localhost:8080', 'https://movies-fix-b2e97731bf8cXXXXXXXX.herokuapp.com/'];
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
