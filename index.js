@@ -208,7 +208,7 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), as
 });
 
 // GET movie by title
-app.get('/movies/:title', passport.authenticate('jwt', { session: false }), async (req, res) => {
+app.get('/movies/:title', async (req, res) => {
   await Movies.findOne({ Title: req.params.title })
     .then((movie) => {
       res.json(movie);
