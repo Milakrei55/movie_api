@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
 
 let allowedOrigins = [
   "http://localhost:8080",
+  "http://localhost:1234",
   "https://milasmovieflix-ab66d5118b4d.herokuapp.com/",
 ];
 
