@@ -109,7 +109,6 @@ app.post(
 // UPDATE - Allow users to update their user info
 app.put(
   "/users/:Username",
-  passport.authenticate("jwt", { session: false }),
   [
     check("Username", "Username is required").isLength({ min: 5 }),
     check(
@@ -151,7 +150,6 @@ app.put(
 // ADD favorite movie to a user
 app.post(
   "/users/:Username/movies/:MovieID",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Users.findOneAndUpdate(
       { Username: req.params.Username },
@@ -171,7 +169,6 @@ app.post(
 // DELETE - Allow users to remove a movie from their list of favorites
 app.delete(
   "/users/:Username/movies/:MovieID",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Users.findOneAndUpdate(
       { Username: req.params.Username },
@@ -191,7 +188,6 @@ app.delete(
 // DELETE - Allow existing users to deregister/ delete user
 app.delete(
   "/users/:Username",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Users.findOneAndDelete({ Username: req.params.Username })
       .then((user) => {
@@ -223,7 +219,6 @@ app.get("/movies", async (req, res) => {
 // GET all users
 app.get(
   "/users",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Users.find()
       .then((users) => {
@@ -239,7 +234,6 @@ app.get(
 // GET user by username
 app.get(
   "/users/:Username",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Users.findOne({ Username: req.params.Username })
       .then((user) => {
@@ -267,7 +261,6 @@ app.get("/movies/:title", async (req, res) => {
 // GET genre by name
 app.get(
   "/movies/genre/:genreName",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Movies.findOne({ "Genre.Name": req.params.genreName })
       .then((movie) => {
@@ -287,7 +280,6 @@ app.get(
 // GET director by name
 app.get(
   "/movies/directors/:directorName",
-  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     await Movies.findOne({ "Director.Name": req.params.directorName })
       .then((movie) => {
