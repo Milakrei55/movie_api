@@ -37,8 +37,10 @@ app.get("/", (req, res) => {
 let allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:1234",
+  "http://localhost:4200",
   "https://milasmovieflix-ab66d5118b4d.herokuapp.com",
   "https://cfmyflixmk.netlify.app",
+  "https://Milakrei55.github.io",
 ];
 
 app.use(
