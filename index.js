@@ -40,7 +40,8 @@ let allowedOrigins = [
   "http://localhost:4200",
   "https://milasmovieflix-ab66d5118b4d.herokuapp.com",
   "https://cfmyflixmk.netlify.app",
-  "https://Milakrei55.github.io",
+  "https://milakrei55.github.io",
+  "https://milakrei55.github.io/CFAngularMyFlix",
 ];
 
 app.use(
