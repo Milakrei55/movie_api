@@ -38,18 +38,19 @@
 4. Start application locally: `npm start`
 5. Access in browser `http://localhost:3000`
 
+
 ## Technologies Used
 - **Node.js**: Server-side runtime environment
 - **Express**: Framework to handle routing, log requests and serve static files
 - **Morgan**: HTTP request logger middleware
 - **MongoDB** - NoSQL database to store movie and user data.
 - **Mongoose** - ODM (Object Data Modeling) library for MongoDB.
-- **Passport.js** - Authentication middleware for Node.js.
 - **Bcrypt.js** - Library for hashing passwords.
 - **JWT (JSON Web Tokens)** - For authenticating users.
 - **CORS** - To enable cross-origin requests from allowed origins.
 - **GitHub** - Version control and repository hosting.
-- **Heroku** - Platform as a Service (PaaS) for hosting and deploying the app.
+- **Heroku** - Hosting and deployment platform, also used to manage secure server authentication.
+
 
 ## Contributing
 
@@ -65,3 +66,44 @@ MIT License. See LICENSE for more information.
 - **Heroku** for hosting the app
 - **GitHub** for version control and repository management
 - **CareerFoundry** for guidance and support during development
+
+## 📚 Documentation
+
+- Inline documentation with JSDoc
+- API endpoints documented within this README
+- Follows RESTful principles with CRUD operations for movies and users
+
+---
+
+## 🌐 Hosting
+
+The API is hosted on **Heroku** and connected to a cloud database via **MongoDB Atlas**.
+
+---
+
+## 🏁 Getting Started
+
+To run this API locally:
+
+1. Clone the repo  
+   `git clone https://github.com/Milakrei55/movie_api`
+2. Navigate to the project folder  
+   `cd movie_api`
+3. Install dependencies  
+   `npm install`
+4. Start the server  
+   `npm start`
+
+Access the server at `http://localhost:3000`.
+
+---
+
+## ✍️ Author
+
+Developed by Michaela (Milakrei55) as part of the Full-Stack Immersion Achievement 2.
+
+---
+
+## 🛑 Hard Rules
+
+- Project is for educational and portfolio use only
