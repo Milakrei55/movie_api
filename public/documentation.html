@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myFLIX Movie API</title>
     <style>
         table {
@@ -14,7 +14,7 @@
         table,
         th,
         td {
-            border: 2px;
+            border: 2px solid black;
             padding: 15px;
             text-align: left;
         }
@@ -29,83 +29,94 @@
                 <th>Business Logic</th>
                 <th>URL</th>
                 <th>HTTP Method</th>
-                <th>Request body data format</th>
-                <th>Response body data format</th>
+                <th>Request Body</th>
+                <th>Response</th>
             </tr>
         </thead>
         <tbody>
-            <!--Create a new user-->
+            <tr>
+                <td>Welcome Message</td>
+                <td>/</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>Welcome string</td>
+            </tr>
             <tr>
                 <td>Create a New User</td>
                 <td>/users</td>
                 <td>POST</td>
-                <td>JSON object holding data about the user</td>
-                <td>JSON object holding data about the user that was added or error "users need names"</td>
+                <td>JSON: Username, Password, Email, Birthday</td>
+                <td>New user object + JWT or error</td>
             </tr>
-            <!--Update user name-->
+            <tr>
+                <td>Get All Users</td>
+                <td>/users</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>Array of users</td>
+            </tr>
+            <tr>
+                <td>Get User by Username</td>
+                <td>/users/:Username</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>User object</td>
+            </tr>
             <tr>
                 <td>Update User Info</td>
-                <td>/users/:id</td>
+                <td>/users/:Username</td>
                 <td>PUT</td>
-                <td>JSON object with updated user info</td>
-                <td>Update user name or error (no such user) message</td>
+                <td>JSON: Username, Password, Email, Birthday</td>
+                <td>Updated user object</td>
             </tr>
-            <!--Add movie to favorites-->
-            <tr>
-                <td>Add a Favorite Movie</td>
-                <td>/users/:id/:movieTitle</td>
-                <td>POST</td>
-                <td>JSON object with movie title</td>
-                <td>Confirmation that movie has been added to user's movie array or error (no such user) message</td>
-            </tr>
-            <!--Delete a user's favorite movie-->
-            <tr>
-                <td>Remove a Movie From Favorites</td>
-                <td>/users/:id/:movieTitle</td>
-                <td>DELETE</td>
-                <td>None</td>
-                <td>Confirmation that movie has been removed from the user's movie array or error (no such user) message
-                </td>
-            </tr>
-            <!--Deregister a user-->
             <tr>
                 <td>Delete User</td>
-                <td>/users/:id</td>
+                <td>/users/:Username</td>
                 <td>DELETE</td>
                 <td>None</td>
-                <td>Confirmation of deletion or error (no such user) message</td>
+                <td>Confirmation message or error</td>
             </tr>
-            <!--Get all movies-->
+            <tr>
+                <td>Add Favorite Movie</td>
+                <td>/users/:Username/movies/:MovieID</td>
+                <td>POST</td>
+                <td>None</td>
+                <td>Updated user object with movie added</td>
+            </tr>
+            <tr>
+                <td>Remove Favorite Movie</td>
+                <td>/users/:Username/movies/:MovieID</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>Updated user object with movie removed</td>
+            </tr>
             <tr>
                 <td>Get All Movies</td>
                 <td>/movies</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON array of movies</td>
+                <td>Array of movie objects</td>
             </tr>
-            <!--Get movie by title--->
             <tr>
-                <td>Get Movies by Movie Title</td>
+                <td>Get Movie by Title</td>
                 <td>/movies/:title</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with movie or error (no such movie)</td>
+                <td>Movie object</td>
             </tr>
-            <!--Get movie by genre-->
             <tr>
-                <td>Get Movies by Genre</td>
+                <td>Get Genre by Name</td>
                 <td>/movies/genre/:genreName</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with genre or error (no such genre)</td>
+                <td>Genre object</td>
             </tr>
-            <!--Get movie by director name-->
             <tr>
-                <td>Get Director info and movies by them</td>
+                <td>Get Director by Name</td>
                 <td>/movies/directors/:directorName</td>
                 <td>GET</td>
                 <td>None</td>
-                <td>JSON object with director info and list of their movies or error (no such director)</td>
+                <td>Director object</td>
             </tr>
         </tbody>
     </table>
